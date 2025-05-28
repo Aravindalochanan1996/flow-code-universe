@@ -1,14 +1,9 @@
 
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Particles from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
 import type { Container, Engine } from '@tsparticles/engine';
 
 const ParticlesBackground = () => {
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    console.log('Particles loaded:', container);
-  }, []);
-
   const options = useMemo(() => ({
     background: {
       color: {
@@ -83,7 +78,6 @@ const ParticlesBackground = () => {
   return (
     <Particles
       id="tsparticles"
-      loaded={particlesLoaded}
       className="absolute inset-0 z-0"
       options={options}
     />
