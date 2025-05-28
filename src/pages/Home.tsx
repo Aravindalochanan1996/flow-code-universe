@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import Scene3D from '../components/Scene3D';
+import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
 
 const Home = () => {
   const containerVariants = {
@@ -39,12 +40,29 @@ const Home = () => {
         >
           {/* Hero Section */}
           <motion.div variants={itemVariants} className="mb-8">
+            {/* Profile Photo */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex justify-center mb-8"
+            >
+              <Avatar className="w-32 h-32 border-4 border-purple-400 shadow-lg shadow-purple-500/25">
+                <AvatarImage 
+                  src="/lovable-uploads/4d533780-39d5-474e-9e34-b3ad5afb3a78.png" 
+                  alt="Aravindalochanan R"
+                  className="object-cover"
+                />
+                <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                  AR
+                </AvatarFallback>
+              </Avatar>
+            </motion.div>
+
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                Hello, I'm a
+                Hello, I'm
               </span>
               <br />
-              <span className="text-white">Frontend Developer</span>
+              <span className="text-white">Aravindalochanan R</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
               I create beautiful, interactive, and user-friendly web experiences using modern technologies
