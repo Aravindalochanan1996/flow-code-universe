@@ -5,11 +5,6 @@ import { loadSlim } from '@tsparticles/slim';
 import type { Container, Engine } from '@tsparticles/engine';
 
 const ParticlesBackground = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    console.log('Particles init:', engine);
-    await loadSlim(engine);
-  }, []);
-
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
     console.log('Particles loaded:', container);
   }, []);
@@ -88,7 +83,6 @@ const ParticlesBackground = () => {
   return (
     <Particles
       id="tsparticles"
-      init={particlesInit}
       loaded={particlesLoaded}
       className="absolute inset-0 z-0"
       options={options}
