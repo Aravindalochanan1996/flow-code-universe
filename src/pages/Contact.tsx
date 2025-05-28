@@ -1,38 +1,57 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    // Replace these with your EmailJS service, template, and user IDs
+    const serviceID = "service_rdpmdw9";
+    const templateID = "template_x4q1lq7";
+    const userID = "OBLX0rbVm_MiUQ8M9";
+
+    try {
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        userID
+      );
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 2000);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    }
   };
 
   return (
@@ -61,7 +80,9 @@ const Contact = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              Have a project in mind or want to collaborate? I'd love to hear from you. Send me a message and let's create something amazing together!
+              Have a project in mind or want to collaborate? I'd love to hear
+              from you. Send me a message and let's create something amazing
+              together!
             </motion.p>
           </div>
 
@@ -73,15 +94,20 @@ const Contact = () => {
               transition={{ delay: 0.6 }}
             >
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-purple-500/20">
-                <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
-                
+                <h2 className="text-2xl font-bold text-white mb-6">
+                  Send a Message
+                </h2>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
                   >
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Your Name
                     </label>
                     <input
@@ -101,7 +127,10 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 }}
                   >
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Your Email
                     </label>
                     <input
@@ -121,7 +150,10 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2 }}
                   >
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Your Message
                     </label>
                     <textarea
@@ -146,11 +178,11 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-purple-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </motion.button>
 
                   {/* Status Messages */}
-                  {submitStatus === 'success' && (
+                  {submitStatus === "success" && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -159,7 +191,7 @@ const Contact = () => {
                       Message sent successfully! I'll get back to you soon.
                     </motion.div>
                   )}
-                  {submitStatus === 'error' && (
+                  {submitStatus === "error" && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -181,29 +213,49 @@ const Contact = () => {
             >
               {/* Contact Information */}
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-purple-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  Let's Connect
+                </h3>
                 <div className="space-y-4">
                   <p className="text-gray-300 leading-relaxed">
-                    I'm always excited to work on interesting projects and collaborate with amazing people. 
-                    Whether you have a project in mind, need consultation, or just want to say hello, 
-                    feel free to reach out!
+                    I'm always excited to work on interesting projects and
+                    collaborate with amazing people. Whether you have a project
+                    in mind, need consultation, or just want to say hello, feel
+                    free to reach out!
                   </p>
                   <p className="text-gray-300 leading-relaxed">
-                    I typically respond within 24 hours and I'm open to discussing opportunities 
-                    ranging from freelance projects to full-time positions.
+                    I typically respond within 24 hours and I'm open to
+                    discussing opportunities ranging from freelance projects to
+                    full-time positions.
                   </p>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-purple-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Find Me Online</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  Find Me Online
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: Mail, label: 'Email', href: 'mailto:john@example.com', color: 'hover:text-red-400' },
-                    { icon: Github, label: 'GitHub', href: '#', color: 'hover:text-gray-400' },
-                    { icon: Linkedin, label: 'LinkedIn', href: '#', color: 'hover:text-blue-400' },
-                    { icon: Twitter, label: 'Twitter', href: '#', color: 'hover:text-cyan-400' }
+                    {
+                      icon: Mail,
+                      label: "Email",
+                      href: "mailto:lochanan1996@gmail.com",
+                      color: "hover:text-red-400",
+                    },
+                    {
+                      icon: Github,
+                      label: "GitHub",
+                      href: "https://github.com/Aravindalochanan1996",
+                      color: "hover:text-gray-400",
+                    },
+                    {
+                      icon: Linkedin,
+                      label: "LinkedIn",
+                      href: "www.linkedin.com/in/aravindalochanan-ramanujam",
+                      color: "hover:text-blue-400",
+                    },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
@@ -212,7 +264,10 @@ const Contact = () => {
                       whileTap={{ scale: 0.95 }}
                       className={`flex items-center space-x-3 p-4 bg-white/5 rounded-lg border border-purple-500/20 text-gray-300 ${social.color} transition-all duration-300 group`}
                     >
-                      <social.icon size={24} className="group-hover:scale-110 transition-transform" />
+                      <social.icon
+                        size={24}
+                        className="group-hover:scale-110 transition-transform"
+                      />
                       <span className="font-medium">{social.label}</span>
                     </motion.a>
                   ))}
@@ -224,10 +279,13 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500/30"
               >
-                <h4 className="text-lg font-bold text-white mb-2">Quick Response Guaranteed</h4>
+                <h4 className="text-lg font-bold text-white mb-2">
+                  Quick Response Guaranteed
+                </h4>
                 <p className="text-gray-300 text-sm">
-                  I check my messages regularly and aim to respond within 24 hours. 
-                  For urgent inquiries, feel free to reach out via LinkedIn.
+                  I check my messages regularly and aim to respond within 24
+                  hours. For urgent inquiries, feel free to reach out via
+                  LinkedIn.
                 </p>
               </motion.div>
             </motion.div>
