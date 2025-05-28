@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, Box, Torus } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 const FloatingGeometry = ({ position, geometry }: { position: [number, number, number], geometry: 'sphere' | 'box' | 'torus' }) => {
@@ -18,18 +18,18 @@ const FloatingGeometry = ({ position, geometry }: { position: [number, number, n
   const renderGeometry = () => {
     switch (geometry) {
       case 'sphere':
-        return <Sphere ref={meshRef} args={[0.5, 32, 32]} position={position} />;
+        return <sphereGeometry args={[0.5, 32, 32]} />;
       case 'box':
-        return <Box ref={meshRef} args={[0.8, 0.8, 0.8]} position={position} />;
+        return <boxGeometry args={[0.8, 0.8, 0.8]} />;
       case 'torus':
-        return <Torus ref={meshRef} args={[0.5, 0.2, 16, 100]} position={position} />;
+        return <torusGeometry args={[0.5, 0.2, 16, 100]} />;
       default:
-        return <Sphere ref={meshRef} args={[0.5, 32, 32]} position={position} />;
+        return <sphereGeometry args={[0.5, 32, 32]} />;
     }
   };
 
   return (
-    <mesh>
+    <mesh ref={meshRef} position={position}>
       {renderGeometry()}
       <meshStandardMaterial
         color="#8B5CF6"

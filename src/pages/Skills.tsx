@@ -93,20 +93,10 @@ const Skills = () => {
               <pointLight position={[-10, -10, -10]} intensity={0.5} color="#A855F7" />
               
               <Center>
-                <Text3D
-                  font="/fonts/helvetiker_regular.typeface.json"
-                  size={0.8}
-                  height={0.1}
-                  curveSegments={12}
-                  bevelEnabled
-                  bevelThickness={0.02}
-                  bevelSize={0.02}
-                  bevelOffset={0}
-                  bevelSegments={5}
-                >
-                  SKILLS
+                <mesh>
+                  <boxGeometry args={[2, 0.5, 0.5]} />
                   <meshStandardMaterial color="#8B5CF6" />
-                </Text3D>
+                </mesh>
               </Center>
               
               <SkillSphere skill="React" position={[-3, 2, 0]} />
