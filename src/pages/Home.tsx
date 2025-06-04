@@ -1,10 +1,9 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import Scene3D from '../components/Scene3D';
-import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import Scene3D from "../components/Scene3D";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 const Home = () => {
   const containerVariants = {
@@ -13,9 +12,9 @@ const Home = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -24,9 +23,9 @@ const Home = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
@@ -41,13 +40,13 @@ const Home = () => {
           {/* Hero Section */}
           <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
             {/* Profile Photo */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex justify-center mb-6 sm:mb-8"
             >
               <Avatar className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 border-2 sm:border-4 border-purple-400 shadow-lg shadow-purple-500/25">
-                <AvatarImage 
-                  src="/lovable-uploads/4d533780-39d5-474e-9e34-b3ad5afb3a78.png" 
+                <AvatarImage
+                  src="/lovable-uploads/4d533780-39d5-474e-9e34-b3ad5afb3a78.png"
                   alt="Aravindalochanan R"
                   className="object-cover"
                 />
@@ -65,19 +64,26 @@ const Home = () => {
               <span className="text-white break-words">Aravindalochanan R</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
-              I create beautiful, interactive, and user-friendly web experiences using modern technologies
+              I create beautiful, interactive, and user-friendly web experiences
+              using modern technologies
             </p>
           </motion.div>
 
           {/* 3D Scene */}
-          <motion.div variants={itemVariants} className="mb-8 sm:mb-10 md:mb-12 px-2">
+          <motion.div
+            variants={itemVariants}
+            className="mb-8 sm:mb-10 md:mb-12 px-2"
+          >
             <div className="h-48 sm:h-64 md:h-80 lg:h-96">
               <Scene3D />
             </div>
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-14 md:mb-16 px-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-14 md:mb-16 px-4"
+          >
             <Link to="/projects" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -99,15 +105,32 @@ const Home = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div variants={itemVariants} className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-14 md:mb-16 px-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-14 md:mb-16 px-4"
+          >
             {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Mail, href: "#", label: "Email" }
+              {
+                icon: Github,
+                href: "https://github.com/Aravindalochanan1996",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "www.linkedin.com/in/aravindalochanan-ramanujam",
+                label: "LinkedIn",
+              },
+              {
+                icon: Mail,
+                href: "mailto:lochanan1996@gmail.com",
+                label: "Email",
+              },
             ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
+                target="_blank" // Open in new tab
+                rel="noopener noreferrer" // Security best practice
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-purple-400 hover:text-white hover:bg-purple-500/20 transition-all duration-300"

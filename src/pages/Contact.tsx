@@ -260,6 +260,8 @@ const Contact = () => {
                     <motion.a
                       key={index}
                       href={social.href}
+                      target="_blank" // Open in new tab
+                      rel="noopener noreferrer" // Security best practice
                       whileHover={{ scale: 1.05, y: -5 }}
                       whileTap={{ scale: 0.95 }}
                       className={`flex items-center space-x-3 p-4 bg-white/5 rounded-lg border border-purple-500/20 text-gray-300 ${social.color} transition-all duration-300 group`}

@@ -6,14 +6,14 @@ const About = () => {
   const timelineItems = [
     {
       year: "2023",
-      title: "Senior Frontend Developer",
-      company: "Tech Company",
-      description: "Leading frontend development team, implementing modern React applications with advanced animations and 3D elements."
+      title: "Systems Engineer",
+      company: "Tata Consultancy Services",
+      description: "Leading frontend development team, implementing modern React applications integrated with backend services and cloud solutions."
     },
     {
       year: "2022",
-      title: "Frontend Developer",
-      company: "Startup Inc",
+      title: "Systems Engineer",
+      company: "Tata Consultancy Services",
       description: "Developed responsive web applications using React, TypeScript, and modern CSS frameworks."
     },
     {
