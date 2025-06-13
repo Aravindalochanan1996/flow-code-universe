@@ -1,33 +1,28 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const timelineItems = [
     {
-      year: "2023",
+      year: "2023-present",
       title: "Systems Engineer",
       company: "Tata Consultancy Services",
-      description: "Leading frontend development team, implementing modern React applications integrated with backend services and cloud solutions."
+      description:
+        "Leading frontend development team, implementing modern React applications integrated with backend services and cloud solutions.",
     },
     {
-      year: "2022",
-      title: "Systems Engineer",
-      company: "Tata Consultancy Services",
-      description: "Developed responsive web applications using React, TypeScript, and modern CSS frameworks."
+      year: "2020-2023",
+      title: "Programmer Ananlyst",
+      company: "FIS Global",
+      description:
+        "A part of frontend development team, implemented modern Angular applications integrated with python backend services and cloud solutions.",
     },
     {
-      year: "2021",
-      title: "Junior Developer",
-      company: "Web Agency",
-      description: "Started my career building websites and learning modern web development technologies."
-    },
-    {
-      year: "2020",
-      title: "Computer Science Graduate",
-      company: "University",
-      description: "Graduated with a degree in Computer Science, specializing in web technologies and user interface design."
-    }
+      year: "2019-2020",
+      title: "Data Analyst",
+      company: "Urjanet Energy Solutions",
+      description: "Worked as a data analyst, focusing on data processing and visualization.",
+  },
   ];
 
   return (
@@ -56,7 +51,8 @@ const About = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              I'm passionate about creating amazing web experiences that combine beautiful design with cutting-edge technology.
+              I'm passionate about creating amazing web experiences that combine
+              beautiful design with cutting-edge technology.
             </motion.p>
           </div>
 
@@ -70,18 +66,23 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold text-white mb-6">My Story</h2>
               <p className="text-gray-300 leading-relaxed">
-                I'm a passionate frontend developer with a love for creating immersive digital experiences. 
-                My journey began with a curiosity about how websites work, and it has evolved into a career 
-                focused on building beautiful, functional, and accessible web applications.
+                I'm a passionate frontend developer with a love for creating
+                immersive digital experiences. My journey began with a curiosity
+                about how websites work, and it has evolved into a career
+                focused on building beautiful, functional, and accessible web
+                applications.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                I specialize in React, TypeScript, and modern CSS frameworks, with a particular interest in 
-                animations, 3D graphics, and user experience design. I believe that great software is not 
-                just about functionality, but about creating delightful interactions that users remember.
+                I specialize in React, TypeScript, and modern CSS frameworks,
+                with a particular interest in animations, 3D graphics, and user
+                experience design. I believe that great software is not just
+                about functionality, but about creating delightful interactions
+                that users remember.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open source 
-                projects, or sharing my knowledge through articles and tutorials.
+                When I'm not coding, you can find me exploring new technologies,
+                contributing to open source projects, or sharing my knowledge
+                through articles and tutorials.
               </p>
             </motion.div>
 
@@ -91,10 +92,7 @@ const About = () => {
               transition={{ delay: 0.8 }}
               className="flex justify-center"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative"
-              >
+              <motion.div whileHover={{ scale: 1.05 }} className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                   <div className="w-72 h-72 bg-slate-800 rounded-full flex items-center justify-center">
                     <span className="text-6xl">👨‍💻</span>
@@ -102,7 +100,11 @@ const About = () => {
                 </div>
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute inset-0 border-4 border-dashed border-purple-400/30 rounded-full"
                 />
               </motion.div>
@@ -115,11 +117,13 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
           >
-            <h2 className="text-3xl font-bold text-center text-white mb-12">My Journey</h2>
+            <h2 className="text-3xl font-bold text-center text-white mb-12">
+              My Journey
+            </h2>
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500"></div>
-              
+
               {timelineItems.map((item, index) => (
                 <motion.div
                   key={index}
@@ -128,21 +132,31 @@ const About = () => {
                   transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
                   className={`relative flex items-center mb-12 ${
-                    index % 2 === 0 ? 'justify-start' : 'justify-end'
+                    index % 2 === 0 ? "justify-start" : "justify-end"
                   }`}
                 >
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                  <div
+                    className={`w-5/12 ${
+                      index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
+                    }`}
+                  >
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-purple-500/20"
                     >
-                      <span className="text-purple-400 font-bold text-lg">{item.year}</span>
-                      <h3 className="text-xl font-bold text-white mt-2">{item.title}</h3>
-                      <p className="text-purple-300 font-medium">{item.company}</p>
+                      <span className="text-purple-400 font-bold text-lg">
+                        {item.year}
+                      </span>
+                      <h3 className="text-xl font-bold text-white mt-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-purple-300 font-medium">
+                        {item.company}
+                      </p>
                       <p className="text-gray-300 mt-2">{item.description}</p>
                     </motion.div>
                   </div>
-                  
+
                   {/* Timeline dot */}
                   <motion.div
                     whileHover={{ scale: 1.5 }}
