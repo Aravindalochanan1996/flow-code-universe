@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin, Phone } from "lucide-react";
 
 // Web3Forms access key from https://web3forms.com (free, 250 messages/month).
 // It is safe to keep in client code: it can only deliver messages to the
@@ -102,9 +102,9 @@ const Contact = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              Have a project in mind or want to collaborate? I'd love to hear
-              from you. Send me a message and let's create something amazing
-              together!
+              Looking for an AI Engineer or Full-Stack Developer? Whether it's a
+              role, a project or a conversation about AI-powered development,
+              I'd love to hear from you.
             </motion.p>
           </div>
 
@@ -255,15 +255,22 @@ const Contact = () => {
                 </h3>
                 <div className="space-y-4">
                   <p className="text-gray-300 leading-relaxed">
-                    I'm always excited to work on interesting projects and
-                    collaborate with amazing people. Whether you have a project
-                    in mind, need consultation, or just want to say hello, feel
-                    free to reach out!
+                    I'm an AI Engineer and Full-Stack Developer based in
+                    Chennai, India, currently building multi-agent AI and
+                    microfrontend platforms at D4 Insight. I'm happy to talk
+                    about React, Angular, Python (FastAPI), agentic AI and
+                    prompt engineering.
                   </p>
                   <p className="text-gray-300 leading-relaxed">
-                    I typically respond within 24 hours and I'm open to
-                    discussing opportunities ranging from freelance projects to
-                    full-time positions.
+                    Reach me at{" "}
+                    <a href="mailto:lochanan1996@gmail.com" className="text-purple-400 hover:text-purple-300">
+                      lochanan1996@gmail.com
+                    </a>{" "}
+                    or{" "}
+                    <a href="tel:+917871888848" className="text-purple-400 hover:text-purple-300">
+                      +91-7871888848
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
@@ -292,6 +299,12 @@ const Contact = () => {
                       label: "LinkedIn",
                       href: "https://www.linkedin.com/in/aravindalochanan-ramanujam",
                       color: "hover:text-blue-400",
+                    },
+                    {
+                      icon: Phone,
+                      label: "Phone",
+                      href: "tel:+917871888848",
+                      color: "hover:text-green-400",
                     },
                   ].map((social, index) => (
                     <motion.a

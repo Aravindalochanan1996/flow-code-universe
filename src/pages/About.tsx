@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Bot, Layers, Server } from "lucide-react";
 
 const About = () => {
   const timelineItems = [
@@ -31,6 +32,42 @@ const About = () => {
       description:
         "Top performer meeting SLAs and quality metrics, troubleshooting data defects and providing root-cause analysis to engineering teams.",
     },
+  ];
+
+  const focusAreas = [
+    {
+      icon: Bot,
+      title: "AI Engineering",
+      description:
+        "Building AI-powered apps with Claude, Codex and GitHub Copilot — multi-agent architectures, LLM integrations and intelligent document workflows.",
+    },
+    {
+      icon: Layers,
+      title: "Front-End Architecture",
+      description:
+        "Reusable React and Angular component libraries, microfrontends with Module Federation, and pixel-accurate UI from Figma designs.",
+    },
+    {
+      icon: Server,
+      title: "Full-Stack & Cloud",
+      description:
+        "Node.js and Python (FastAPI) microservices, RESTful and GraphQL APIs, PostgreSQL and MongoDB, deployed on Microsoft Azure and AWS.",
+    },
+  ];
+
+  const competencies = [
+    "React.js",
+    "Angular & Angular Material",
+    "TypeScript / JavaScript (ES6+)",
+    "Redux",
+    "Node.js",
+    "Python (FastAPI)",
+    "RESTful APIs & GraphQL",
+    "Responsive & Component-Driven UI",
+    "Microsoft Azure & AWS",
+    "CI/CD & DevOps",
+    "Agile / Scrum",
+    "AI-Assisted & Prompt-Driven Development",
   ];
 
   return (
@@ -104,9 +141,11 @@ const About = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <div className="w-72 h-72 bg-slate-800 rounded-full flex items-center justify-center">
-                    <span className="text-6xl">👨‍💻</span>
-                  </div>
+                  <img
+                    src="/lovable-uploads/4d533780-39d5-474e-9e34-b3ad5afb3a78.png"
+                    alt="Aravindalochanan Ramanujam"
+                    className="w-72 h-72 rounded-full object-cover bg-slate-800"
+                  />
                 </div>
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -120,6 +159,44 @@ const About = () => {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* What I Focus On */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <h2 className="text-3xl font-bold text-center text-white mb-12">
+              What I Focus On
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {focusAreas.map((area) => (
+                <motion.div
+                  key={area.title}
+                  whileHover={{ y: -6 }}
+                  className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20"
+                >
+                  <area.icon className="text-purple-400 mb-4" size={32} />
+                  <h3 className="text-xl font-bold text-white mb-2">{area.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{area.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            <h3 className="text-2xl font-bold text-center text-white mb-6">
+              Core Competencies
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {competencies.map((item) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 rounded-full border border-purple-500/30"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Timeline */}
           <motion.div

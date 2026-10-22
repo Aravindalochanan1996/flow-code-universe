@@ -63,6 +63,20 @@ const Resume = () => {
     // }
   ];
 
+  const competencies = [
+    "React.js",
+    "Angular & Angular Material",
+    "TypeScript / JavaScript (ES6+)",
+    "Redux",
+    "Node.js",
+    "Python (FastAPI)",
+    "RESTful APIs & GraphQL",
+    "Microsoft Azure & AWS",
+    "CI/CD & DevOps",
+    "Agile / Scrum",
+    "AI-Assisted & Prompt-Driven Development",
+  ];
+
   const achievements = [
     "Leading the transformation of Workforcenexa into a full-scale HRMS, Finance, and Employee Usage platform with multi-agent AI, microfrontend, and microservices foundations",
     "Adopted AI-assisted, prompt-driven development (Claude, Codex, Copilot) to move applications from prompt to production, shortening delivery cycles",
@@ -156,6 +170,39 @@ const Resume = () => {
                     <span>{item.label}</span>
                   )}
                 </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">Summary</h2>
+            <p className="text-sm font-semibold text-purple-300 mb-4">
+              AI Engineering | Prompt Engineering | Full-Stack Engineer | React.js &amp; Angular | Node.js | Python | MongoDB
+            </p>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Software developer with 7+ years of experience designing and building scalable,
+              high-performance web applications with React and Angular across fintech and
+              enterprise domains. Proven track record of translating complex business and design
+              requirements into responsive, reusable, and accessible UI components, integrating
+              RESTful and GraphQL APIs, and delivering cloud-hosted, production-grade solutions on
+              Microsoft Azure and AWS. Currently expanding into AI-powered development — building
+              apps with Claude, Codex, and GitHub Copilot — with growing hands-on exposure to agentic
+              AI workflows, LLM integrations, and prompt engineering.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {competencies.map((item) => (
+                <span
+                  key={item}
+                  className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full border border-purple-500/30"
+                >
+                  {item}
+                </span>
               ))}
             </div>
           </motion.div>

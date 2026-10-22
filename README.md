@@ -1,54 +1,38 @@
-# Welcome to Aravindalochanan Portfolio
+# Aravindalochanan Ramanujam — Portfolio
 
-## Project info
+Personal portfolio of **Aravindalochanan Ramanujam**, AI Engineer and Full-Stack Developer (React, Angular, Node.js, Python/FastAPI) with 7+ years of experience across fintech and enterprise domains.
 
-## How can I edit this code?
+- GitHub: [Aravindalochanan1996](https://github.com/Aravindalochanan1996)
+- LinkedIn: [aravindalochanan-ramanujam](https://www.linkedin.com/in/aravindalochanan-ramanujam)
+- Email: lochanan1996@gmail.com
 
-There are several ways of editing your application.
+## Pages
 
-**Use your preferred IDE**
+- **Home** — introduction and highlights
+- **About** — story, focus areas, core competencies and career timeline
+- **Projects** — featured work (Workforcenexa, Bank of America Ecomm, ETSS, CAPE, AI apps) and live public GitHub repositories
+- **Skills** — skills grouped by area
+- **Resume** — summary, experience, key achievements and PDF download (`public/assets/docs/resume.pdf`)
+- **Contact** — contact form sent through [Web3Forms](https://web3forms.com), with an email fallback
 
-If you want to work locally using your own IDE, you can clone this repo and push changes.
+## Run locally
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js and npm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev      # http://localhost:8080
+npm run build    # production build in dist/
 ```
 
-**Edit a file directly in GitHub**
+## Updating content
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Experience, achievements and contact details: `src/pages/Resume.tsx`
+- Story, focus areas and timeline: `src/pages/About.tsx`
+- Featured projects: `src/pages/Projects.tsx` (GitHub repos load automatically)
+- Skills: `src/pages/Skills.tsx`
+- Contact form key: `WEB3FORMS_ACCESS_KEY` in `src/pages/Contact.tsx`
 
-**Use GitHub Codespaces**
+## Tech stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
+Vite, React, TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Three.js (react-three-fiber), TanStack Query.
