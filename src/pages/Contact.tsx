@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Twitter } from "lucide-react";
-import emailjs from "emailjs-com";
+
+// Web3Forms access key from https://web3forms.com (free, 250 messages/month).
+// It is safe to keep in client code: it can only deliver messages to the
+// inbox it was created for.
+const WEB3FORMS_ACCESS_KEY = "";
+const CONTACT_EMAIL = "lochanan1996@gmail.com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +14,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [botcheck, setBotcheck] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
@@ -25,34 +31,50 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Without an access key, fall back to the visitor's own mail app
+    if (!WEB3FORMS_ACCESS_KEY) {
+      window.location.href = mailtoLink;
+      return;
+    }
+
     setIsSubmitting(true);
-
-    // Replace these with your EmailJS service, template, and user IDs
-    const serviceID = "service_rdpmdw9";
-    const templateID = "template_x4q1lq7";
-    const userID = "OBLX0rbVm_MiUQ8M9";
-
     try {
-      await emailjs.send(
-        serviceID,
-        templateID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        userID
-      );
-      setIsSubmitting(false);
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New portfolio message from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          botcheck: botcheck,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to send message");
+      }
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitStatus("idle"), 3000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
-      setIsSubmitting(false);
       setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus("idle"), 3000);
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    `Portfolio message from ${formData.name || "a visitor"}`
+  )}&body=${encodeURIComponent(
+    `${formData.message}\n\n${formData.name}${formData.email ? ` (${formData.email})` : ""}`
+  )}`;
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -168,6 +190,17 @@ const Contact = () => {
                     />
                   </motion.div>
 
+                  {/* Honeypot field for spam bots; hidden from real visitors */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    checked={botcheck}
+                    onChange={(e) => setBotcheck(e.target.checked)}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
                   <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -197,7 +230,11 @@ const Contact = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       className="text-red-400 text-center font-medium"
                     >
-                      Something went wrong. Please try again later.
+                      Something went wrong.{" "}
+                      <a href={mailtoLink} className="underline hover:text-red-300">
+                        Send it by email instead
+                      </a>
+                      .
                     </motion.div>
                   )}
                 </form>
