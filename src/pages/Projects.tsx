@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
-import { Github, ExternalLink, Star, GitFork, Briefcase } from 'lucide-react';
+import { Github, ExternalLink, Star, GitFork, Briefcase, FolderGit2 } from 'lucide-react';
 
 const GITHUB_USERNAME = 'Aravindalochanan1996';
 const INITIAL_REPO_COUNT = 9;
@@ -19,6 +19,136 @@ interface GithubRepo {
   fork: boolean;
   pushed_at: string;
 }
+
+interface GithubProject {
+  repo: string;
+  title: string;
+  description: string;
+  tags: string[];
+  category: 'ai' | 'fullstack' | 'automation' | 'frontend';
+  demo?: string;
+}
+
+// Hand-picked personal projects from GitHub, shown above the full repo list
+const githubProjects: GithubProject[] = [
+  {
+    repo: 'project-using-langchain-langgraph',
+    title: 'Banking AI Assistant',
+    description: 'Intelligent document processing pipeline for banking cheque clearing: an agentic LangGraph workflow with human-in-the-loop review, versioned prompts, schema validation and model evaluation.',
+    tags: ['Python', 'LangGraph', 'LangChain', 'Pydantic', 'HITL'],
+    category: 'ai',
+  },
+  {
+    repo: 'mfe-microservices',
+    title: 'AuraHR – AI-Powered HRMS',
+    description: 'HRMS portal with a React micro-frontend shell (People, Timesheets, Finance & Payroll, Recruitment), a FastAPI microservices gateway, MongoDB and a global AI HR Copilot.',
+    tags: ['React', 'Micro-Frontends', 'FastAPI', 'MongoDB', 'AI Copilot'],
+    category: 'ai',
+  },
+  {
+    repo: 'chatbot-using-RAG-streamlit',
+    title: 'Resume RAG Chatbot',
+    description: 'Upload PDF resumes and ask questions about them. Text is chunked, embedded into a local Chroma vector database and answered with retrieval-augmented generation.',
+    tags: ['Python', 'Streamlit', 'LangChain', 'ChromaDB', 'Ollama'],
+    category: 'ai',
+  },
+  {
+    repo: 'pdf-reader-using-RAG',
+    title: 'PDF Q&A with RAG',
+    description: 'Reads local PDFs, creates sentence embeddings and retrieves relevant passages from a FAISS index, with a command-line interface and a notebook version.',
+    tags: ['Python', 'FAISS', 'Sentence Transformers', 'RAG'],
+    category: 'ai',
+  },
+  {
+    repo: 'ai-interview-champion',
+    title: 'AI Interview Champion',
+    description: 'Study app for AI and Data interviews: 28 topics across AI, data and the Microsoft enterprise stack, with 109 interview questions and model answers.',
+    tags: ['JavaScript', 'GenAI', 'RAG', 'Azure OpenAI'],
+    category: 'ai',
+    demo: 'https://ai-interview-champion.vercel.app',
+  },
+  {
+    repo: 'interview-preparation-guide',
+    title: 'PrepStack – Interview Prep Kit',
+    description: 'Interview preparation app with role-based learning paths, beginner-to-advanced tracks across web, backend, DevOps, cloud, testing and AI, plus scenario and tricky questions.',
+    tags: ['JavaScript', 'Node.js', 'Learning Paths', 'Flashcards'],
+    category: 'ai',
+  },
+  {
+    repo: 'demand-dashboard',
+    title: 'Demand Dashboard',
+    description: 'Role-based dashboard with JWT login for business users and admins, editable client tables, Excel workbook upload, soft deletes and an audit of the last edit.',
+    tags: ['React', 'FastAPI', 'MongoDB', 'JWT', 'RBAC'],
+    category: 'fullstack',
+  },
+  {
+    repo: 'hrmsportal',
+    title: 'HRMS Portal',
+    description: 'Responsive HR portal with registration and JWT login, profile management and daily attendance check-in/out with working-hours calculation and monthly history.',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    category: 'fullstack',
+  },
+  {
+    repo: 'magnetic-apparels',
+    title: 'Magnetic Apparels',
+    description: 'E-commerce platform for dresses, shoes, watches and wallets that combines Vue, React and Angular front ends with a Node.js, Express and MongoDB API.',
+    tags: ['Node.js', 'MongoDB', 'React', 'Angular', 'Vue'],
+    category: 'fullstack',
+  },
+  {
+    repo: 'web3-demo-app',
+    title: 'Web3.js Demo App',
+    description: 'Full-stack Ethereum explorer on the Sepolia testnet: account balances, gas prices, blocks, transactions and address validation through an Express API.',
+    tags: ['Node.js', 'Express', 'Web3.js', 'Ethereum'],
+    category: 'fullstack',
+  },
+  {
+    repo: 'automation-on-mails',
+    title: 'Outlook Attachment Downloader',
+    description: 'Scheduled automation that downloads matching attachments from an Outlook folder through Microsoft Graph, skipping files it has already saved.',
+    tags: ['Python', 'Microsoft Graph', 'MSAL', 'Task Scheduler'],
+    category: 'automation',
+  },
+  {
+    repo: 'python-timesheet-imap-downloader',
+    title: 'Timesheet IMAP Downloader',
+    description: 'Downloads and parses timesheet data from email bodies and attachments over IMAP and exports it to CSV or Excel, with logging, type hints and tests.',
+    tags: ['Python', 'IMAP', 'openpyxl', 'pytest'],
+    category: 'automation',
+  },
+  {
+    repo: 'js-compiler',
+    title: 'JS Compiler',
+    description: 'In-browser JavaScript editor and runner built on the Monaco editor, the engine behind VS Code.',
+    tags: ['Angular', 'TypeScript', 'Monaco Editor'],
+    category: 'frontend',
+  },
+  {
+    repo: 'code-snippet-app',
+    title: 'Code Snippet App',
+    description: 'App for saving and browsing code snippets with syntax highlighting.',
+    tags: ['React', 'TypeScript', 'Material UI', 'Tailwind CSS'],
+    category: 'frontend',
+    demo: 'https://code-snippet-app-one.vercel.app',
+  },
+  {
+    repo: 'expense-tracker',
+    title: 'Expense Tracker',
+    description: 'Personal expense tracker with an Angular Material interface and a JSON Server mock API.',
+    tags: ['Angular', 'Angular Material', 'JSON Server'],
+    category: 'frontend',
+    demo: 'https://expense-tracker-gamma-henna.vercel.app',
+  },
+  {
+    repo: 'lift-simulator',
+    title: 'Lift Simulator',
+    description: 'Elevator simulation with state managed through NgRx store and effects.',
+    tags: ['Angular', 'TypeScript', 'NgRx'],
+    category: 'frontend',
+  },
+];
+
+const featuredRepoNames = new Set(githubProjects.map((project) => project.repo.toLowerCase()));
 
 const fetchRepos = async (): Promise<GithubRepo[]> => {
   const res = await fetch(
@@ -38,6 +168,7 @@ const formatRepoName = (name: string) =>
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [showAllRepos, setShowAllRepos] = useState(false);
+  const [githubFilter, setGithubFilter] = useState('all');
 
   const { data: repos, isLoading, isError } = useQuery({
     queryKey: ['github-repos', GITHUB_USERNAME],
@@ -126,7 +257,21 @@ const Projects = () => {
     { id: 'data', name: 'Reporting & Data' }
   ];
 
-  const visibleRepos = showAllRepos ? repos : repos?.slice(0, INITIAL_REPO_COUNT);
+  const githubCategories = [
+    { id: 'all', name: 'All' },
+    { id: 'ai', name: 'AI & LLM' },
+    { id: 'fullstack', name: 'Full-Stack' },
+    { id: 'automation', name: 'Automation' },
+    { id: 'frontend', name: 'Frontend' }
+  ];
+
+  const filteredGithubProjects = githubFilter === 'all'
+    ? githubProjects
+    : githubProjects.filter(project => project.category === githubFilter);
+
+  // Featured repos already have their own cards above
+  const otherRepos = repos?.filter((repo) => !featuredRepoNames.has(repo.name.toLowerCase()));
+  const visibleRepos = showAllRepos ? otherRepos : otherRepos?.slice(0, INITIAL_REPO_COUNT);
 
   const filteredProjects = filter === 'all'
     ? projects
@@ -160,6 +305,13 @@ const Projects = () => {
             >
               From multi-agent AI platforms to large-scale banking applications — the work I've delivered across AI, fintech and enterprise domains.
             </motion.p>
+          </div>
+
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Briefcase className="text-purple-400" size={28} />
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Professional Projects
+            </h2>
           </div>
 
           {/* Filter Buttons */}
@@ -246,7 +398,88 @@ const Projects = () => {
             ))}
           </motion.div>
 
-          {/* GitHub Repositories */}
+          {/* Personal Projects on GitHub */}
+          <div className="mt-24 pt-16 border-t border-purple-500/20">
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <FolderGit2 className="text-purple-400" size={28} />
+                <h2 className="text-3xl md:text-4xl font-bold text-white">
+                  Personal Projects on GitHub
+                </h2>
+              </div>
+              <p className="text-gray-300 max-w-3xl mx-auto">
+                Projects I've built on my own to explore AI, full-stack architecture and automation.
+                Each one links to its source code on GitHub.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {githubCategories.map((category) => (
+                <motion.button
+                  key={category.id}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setGithubFilter(category.id)}
+                  className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    githubFilter === category.id
+                      ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/25'
+                      : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-purple-500/20'
+                  }`}
+                >
+                  {category.name}
+                </motion.button>
+              ))}
+            </div>
+
+            <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredGithubProjects.map((project, index) => (
+                <motion.div
+                  key={project.repo}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -6 }}
+                  className="flex flex-col bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+                >
+                  <h3 className="text-lg font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 flex-1">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-3">
+                    <a
+                      href={`https://github.com/${GITHUB_USERNAME}/${project.repo}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-white/10 rounded-lg text-purple-300 hover:text-white hover:bg-purple-500/30 transition-colors"
+                    >
+                      <Github size={16} /> Code
+                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all"
+                      >
+                        <ExternalLink size={16} /> Live Demo
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* All GitHub Repositories */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,11 +487,11 @@ const Projects = () => {
             className="mt-24"
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Open Source on GitHub
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                More on GitHub
               </h2>
               <p className="text-gray-300">
-                Live from{' '}
+                Experiments, learning repos and prototypes, live from{' '}
                 <a
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank"
@@ -288,7 +521,7 @@ const Projects = () => {
               </p>
             )}
 
-            {repos && (
+            {visibleRepos && (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {visibleRepos?.map((repo, index) => (
                   <motion.div
@@ -351,7 +584,7 @@ const Projects = () => {
               </div>
             )}
 
-            {repos && repos.length > INITIAL_REPO_COUNT && (
+            {otherRepos && otherRepos.length > INITIAL_REPO_COUNT && (
               <div className="text-center mt-10">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -359,7 +592,7 @@ const Projects = () => {
                   onClick={() => setShowAllRepos((prev) => !prev)}
                   className="px-6 py-3 border-2 border-purple-500 text-purple-400 font-semibold rounded-lg hover:bg-purple-500/10 transition-all duration-300"
                 >
-                  {showAllRepos ? 'Show fewer' : `Show all ${repos.length} repositories`}
+                  {showAllRepos ? 'Show fewer' : `Show all ${otherRepos.length} repositories`}
                 </motion.button>
               </div>
             )}
