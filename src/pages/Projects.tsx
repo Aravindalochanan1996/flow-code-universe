@@ -68,6 +68,14 @@ const githubProjects: GithubProject[] = [
     demo: 'https://ai-interview-champion.vercel.app',
   },
   {
+    repo: 'ai-learning-champion',
+    title: 'AI Learning Champion',
+    description: 'Interview prep for AI Centre of Excellence roles: Agent Runtime Platform, AI Ops, AI QA/SRE, AWS and Azure Platform Engineer, each with a role overview, key tools, topic sections and interview Q&A.',
+    tags: ['React', 'Vite', 'AI Ops', 'MCP', 'Agent Platforms'],
+    category: 'ai',
+    demo: 'https://ai-learning-champion.vercel.app',
+  },
+  {
     repo: 'interview-preparation-guide',
     title: 'PrepStack – Interview Prep Kit',
     description: 'Interview preparation app with role-based learning paths, beginner-to-advanced tracks across web, backend, DevOps, cloud, testing and AI, plus scenario and tricky questions.',
