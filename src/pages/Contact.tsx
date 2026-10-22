@@ -5,7 +5,7 @@ import { Mail, Github, Linkedin, Twitter } from "lucide-react";
 // Web3Forms access key from https://web3forms.com (free, 250 messages/month).
 // It is safe to keep in client code: it can only deliver messages to the
 // inbox it was created for.
-const WEB3FORMS_ACCESS_KEY = "";
+const WEB3FORMS_ACCESS_KEY = "38fa4720-46cf-484b-9ee7-33ed6ecf79a8";
 const CONTACT_EMAIL = "lochanan1996@gmail.com";
 
 const Contact = () => {
