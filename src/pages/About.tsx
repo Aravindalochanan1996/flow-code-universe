@@ -1,28 +1,73 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Bot, Layers, Server } from "lucide-react";
 
 const About = () => {
   const timelineItems = [
     {
-      year: "2023-present",
-      title: "Systems Engineer",
-      company: "Tata Consultancy Services",
+      year: "2025-present",
+      title: "AI Engineer / Technical Consultant",
+      company: "D4 Insight",
       description:
-        "Leading frontend development team, implementing modern React applications integrated with backend services and cloud solutions.",
+        "Leading Workforcenexa's evolution into a full HRMS, Finance and Employee Usage platform with a multi-agent AI, microfrontend and microservices architecture (React, Python FastAPI, PostgreSQL, AWS).",
     },
     {
-      year: "2020-2023",
-      title: "Programmer Ananlyst",
-      company: "FIS Global",
+      year: "2023-2025",
+      title: "System Engineer",
+      company: "Tata Consultancy Services",
       description:
-        "A part of frontend development team, implemented modern Angular applications integrated with python backend services and cloud solutions.",
+        "Built Angular and Angular Material front ends, CMS integrations over RESTful services, and refactored legacy modules to cut load times and redundant HTTP calls.",
+    },
+    {
+      year: "2020-2022",
+      title: "Programmer Analyst",
+      company: "FIS Global Solutions",
+      description:
+        "Delivered Angular and Bootstrap UI for the Modern Banking Platform, from requirement analysis to OpenShift deployments through Jenkins.",
     },
     {
       year: "2019-2020",
       title: "Data Analyst",
       company: "Urjanet Energy Solutions",
-      description: "Worked as a data analyst, focusing on data processing and visualization.",
-  },
+      description:
+        "Top performer meeting SLAs and quality metrics, troubleshooting data defects and providing root-cause analysis to engineering teams.",
+    },
+  ];
+
+  const focusAreas = [
+    {
+      icon: Bot,
+      title: "AI Engineering",
+      description:
+        "Building AI-powered apps with Claude, Codex and GitHub Copilot — multi-agent architectures, LLM integrations and intelligent document workflows.",
+    },
+    {
+      icon: Layers,
+      title: "Front-End Architecture",
+      description:
+        "Reusable React and Angular component libraries, microfrontends with Module Federation, and pixel-accurate UI from Figma designs.",
+    },
+    {
+      icon: Server,
+      title: "Full-Stack & Cloud",
+      description:
+        "Node.js and Python (FastAPI) microservices, RESTful and GraphQL APIs, PostgreSQL and MongoDB, deployed on Microsoft Azure and AWS.",
+    },
+  ];
+
+  const competencies = [
+    "React.js",
+    "Angular & Angular Material",
+    "TypeScript / JavaScript (ES6+)",
+    "Redux",
+    "Node.js",
+    "Python (FastAPI)",
+    "RESTful APIs & GraphQL",
+    "Responsive & Component-Driven UI",
+    "Microsoft Azure & AWS",
+    "CI/CD & DevOps",
+    "Agile / Scrum",
+    "AI-Assisted & Prompt-Driven Development",
   ];
 
   return (
@@ -51,8 +96,9 @@ const About = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              I'm passionate about creating amazing web experiences that combine
-              beautiful design with cutting-edge technology.
+              AI Engineer and Full-Stack Developer with 7+ years of experience
+              building scalable, high-performance applications across fintech
+              and enterprise domains.
             </motion.p>
           </div>
 
@@ -66,23 +112,24 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold text-white mb-6">My Story</h2>
               <p className="text-gray-300 leading-relaxed">
-                I'm a passionate frontend developer with a love for creating
-                immersive digital experiences. My journey began with a curiosity
-                about how websites work, and it has evolved into a career
-                focused on building beautiful, functional, and accessible web
-                applications.
+                I'm a software developer based in Chennai, India, with 7+ years
+                of experience designing and building web applications with
+                React and Angular. I've worked on large-scale banking platforms
+                for Bank of America and FIS Global, and enterprise applications
+                at Tata Consultancy Services.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                I specialize in React, TypeScript, and modern CSS frameworks,
-                with a particular interest in animations, 3D graphics, and user
-                experience design. I believe that great software is not just
-                about functionality, but about creating delightful interactions
-                that users remember.
+                I translate complex business and design requirements into
+                responsive, reusable and accessible UI components, integrate
+                RESTful and GraphQL APIs, and deliver cloud-hosted,
+                production-grade solutions on Microsoft Azure and AWS.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open source projects, or sharing my knowledge
-                through articles and tutorials.
+                Today, at D4 Insight, I'm focused on AI-powered development —
+                building apps with Claude, Codex and GitHub Copilot, and
+                architecting Workforcenexa with multi-agent AI, microfrontends
+                and microservices. My core interests are AI-assisted software
+                development, front-end architecture and prompt engineering.
               </p>
             </motion.div>
 
@@ -94,9 +141,11 @@ const About = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <div className="w-72 h-72 bg-slate-800 rounded-full flex items-center justify-center">
-                    <span className="text-6xl">👨‍💻</span>
-                  </div>
+                  <img
+                    src="/lovable-uploads/4d533780-39d5-474e-9e34-b3ad5afb3a78.png"
+                    alt="Aravindalochanan Ramanujam"
+                    className="w-72 h-72 rounded-full object-cover bg-slate-800"
+                  />
                 </div>
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -110,6 +159,44 @@ const About = () => {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* What I Focus On */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <h2 className="text-3xl font-bold text-center text-white mb-12">
+              What I Focus On
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {focusAreas.map((area) => (
+                <motion.div
+                  key={area.title}
+                  whileHover={{ y: -6 }}
+                  className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20"
+                >
+                  <area.icon className="text-purple-400 mb-4" size={32} />
+                  <h3 className="text-xl font-bold text-white mb-2">{area.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{area.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            <h3 className="text-2xl font-bold text-center text-white mb-6">
+              Core Competencies
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {competencies.map((item) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 rounded-full border border-purple-500/30"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Timeline */}
           <motion.div

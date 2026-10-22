@@ -32,12 +32,13 @@ const Navigation = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2"
             >
-              <Code className="h-8 w-8 text-purple-400" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Portfolio
-              </span>
+              <Link to="/" className="flex items-center space-x-2">
+                <Code className="h-8 w-8 text-purple-400" />
+                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Aravindalochanan R
+                </span>
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}

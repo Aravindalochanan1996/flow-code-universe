@@ -61,12 +61,40 @@ const Home = () => {
                 Hello, I'm
               </span>
               <br />
-              <span className="text-white break-words">Aravindalochanan R</span>
+              <span className="text-white break-words">Aravindalochanan Ramanujam</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
-              I create beautiful, interactive, and user-friendly web experiences
-              using modern technologies
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-purple-300 mb-4 px-4">
+              AI Engineer · Prompt Engineering · Full-Stack Engineer
             </p>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
+              AI Engineer & Full-Stack Developer with 7+ years building
+              scalable React, Angular and Python (FastAPI) applications —
+              now shipping AI-powered, multi-agent products with Claude, Codex
+              and GitHub Copilot.
+            </p>
+          </motion.div>
+
+          {/* Highlights */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-10 px-4"
+          >
+            {[
+              { value: "7+", label: "Years of experience" },
+              { value: "4", label: "Companies" },
+              { value: "React & Angular", label: "Front-end expertise" },
+              { value: "Multi-Agent AI", label: "Current focus" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-purple-500/20"
+              >
+                <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">{stat.label}</div>
+              </div>
+            ))}
           </motion.div>
 
           {/* 3D Scene */}
@@ -107,7 +135,7 @@ const Home = () => {
           {/* Social Links */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-14 md:mb-16 px-4"
+            className="flex justify-center space-x-4 sm:space-x-6 mb-24 px-4"
           >
             {[
               {
@@ -117,7 +145,7 @@ const Home = () => {
               },
               {
                 icon: Linkedin,
-                href: "www.linkedin.com/in/aravindalochanan-ramanujam",
+                href: "https://www.linkedin.com/in/aravindalochanan-ramanujam",
                 label: "LinkedIn",
               },
               {
