@@ -16,36 +16,67 @@ const SkillSphere = ({ skill, position }: { skill: string, position: [number, nu
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Technologies",
+      title: "Frontend",
       skills: [
-        { name: "React", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "JavaScript", level: 95 },
-        { name: "HTML5", level: 98 },
-        { name: "CSS3", level: 95 },
-        { name: "Tailwind CSS", level: 90 }
+        { name: "React", level: 92 },
+        { name: "Angular & Angular Material", level: 92 },
+        { name: "TypeScript / JavaScript (ES6+)", level: 92 },
+        { name: "Redux", level: 82 },
+        { name: "HTML5 & CSS3", level: 95 },
+        { name: "Tailwind CSS & Bootstrap", level: 88 }
       ]
     },
     {
-      title: "3D & Animation",
+      title: "Backend & APIs",
       skills: [
-        { name: "Three.js", level: 85 },
-        { name: "Framer Motion", level: 88 },
-        { name: "CSS Animations", level: 92 },
-        { name: "WebGL", level: 75 },
-        { name: "GSAP", level: 80 },
-        { name: "Lottie", level: 85 }
-      ]
-    },
-    {
-      title: "Tools & Frameworks",
-      skills: [
-        { name: "Vite", level: 90 },
-        { name: "Webpack", level: 85 },
-        { name: "Git", level: 95 },
-        { name: "Figma", level: 88 },
         { name: "Node.js", level: 80 },
-        { name: "REST APIs", level: 92 }
+        { name: "Python (FastAPI)", level: 80 },
+        { name: "RESTful APIs", level: 92 },
+        { name: "GraphQL", level: 78 },
+        { name: "PostgreSQL", level: 78 },
+        { name: "MongoDB", level: 75 }
+      ]
+    },
+    {
+      title: "AI & Prompt Engineering",
+      skills: [
+        { name: "Claude / Codex / GitHub Copilot", level: 92 },
+        { name: "Prompt Engineering", level: 90 },
+        { name: "LLM Integrations", level: 85 },
+        { name: "Multi-Agent AI Systems", level: 80 },
+        { name: "Agentic AI Orchestration", level: 78 },
+        { name: "Intelligent Document Processing", level: 78 }
+      ]
+    },
+    {
+      title: "Architecture",
+      skills: [
+        { name: "Microfrontends (Module Federation)", level: 85 },
+        { name: "Microservices", level: 82 },
+        { name: "Domain-Driven Design", level: 75 },
+        { name: "Multi-Agent System Design", level: 78 },
+        { name: "Component-Driven UI", level: 92 }
+      ]
+    },
+    {
+      title: "Cloud & DevOps",
+      skills: [
+        { name: "Microsoft Azure", level: 78 },
+        { name: "AWS (EC2, API Gateway)", level: 78 },
+        { name: "CI/CD & Jenkins", level: 82 },
+        { name: "OpenShift", level: 78 },
+        { name: "Docker", level: 72 },
+        { name: "Git", level: 92 }
+      ]
+    },
+    {
+      title: "Testing & Quality",
+      skills: [
+        { name: "Jest", level: 82 },
+        { name: "Mocha & Enzyme", level: 75 },
+        { name: "Unit & Integration Testing", level: 85 },
+        { name: "ESLint & Prettier", level: 90 },
+        { name: "Test-Driven Development", level: 75 }
       ]
     }
   ];
@@ -76,7 +107,7 @@ const Skills = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              A comprehensive overview of my technical skills and expertise in modern web development.
+              Full-stack, AI and architecture skills built over 7+ years across fintech and enterprise projects.
             </motion.p>
           </div>
 
@@ -101,8 +132,8 @@ const Skills = () => {
               
               <SkillSphere skill="React" position={[-3, 2, 0]} />
               <SkillSphere skill="TypeScript" position={[3, 2, 0]} />
-              <SkillSphere skill="Three.js" position={[-3, -2, 0]} />
-              <SkillSphere skill="Framer Motion" position={[3, -2, 0]} />
+              <SkillSphere skill="Angular" position={[-3, -2, 0]} />
+              <SkillSphere skill="Python" position={[3, -2, 0]} />
               
               <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
             </Canvas>
@@ -171,9 +202,9 @@ const Skills = () => {
             <h3 className="text-3xl font-bold text-white mb-8">Additional Technologies</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                "Redux", "Next.js", "Vue.js", "Sass", "Less", "GraphQL", 
-                "Docker", "AWS", "Firebase", "Supabase", "MongoDB", "PostgreSQL",
-                "Jest", "Cypress", "Storybook", "Webpack", "Rollup", "ESLint"
+                "Postman", "SoapUI", "Azure API Gateway", "AWS API Gateway", "SMTP & Mail Automation",
+                "Oracle", "Kubernetes (basics)", "Flex Layout", "Jira", "Confluence", "Figma",
+                "VS Code", "IntelliJ", "Agile / Scrum", "Kanban", "Service Orchestration"
               ].map((tech, index) => (
                 <motion.span
                   key={index}

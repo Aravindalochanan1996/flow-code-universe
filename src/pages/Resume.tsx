@@ -1,42 +1,55 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Mail, Github, Linkedin, Phone, MapPin } from "lucide-react";
 
 const Resume = () => {
   const experience = [
     {
-      title: "Systems Engineer",
-      company: "Tata Consultancy Services",
-      period: "2023 - Present",
+      title: "AI Engineer / Technical Consultant",
+      company: "D4 Insight | Chennai",
+      period: "12/2025 - Present",
       description: [
-        "Worked on a large-scale web application using React, Vue and TypeScript",
-        "Collaborated with cross-functional teams to deliver high-quality software",
-        "Improved application performance by 40% through code optimization",
-        "Mentored junior developers and established coding standards",
+        "Built and shipped multiple React-based, AI-powered web applications using Claude, Codex, and GitHub Copilot, moving from prompt to production with minimal manual scaffolding",
+        "Developing Workforcenexa, transforming it from a single-purpose AI recruitment tool into a complete HRMS, Finance, and Employee Usage platform with a multi-agent AI architecture",
+        "Designed a microfrontend/microservices architecture (People, Finance, Auth, Recruitment) using React and Python (FastAPI) with PostgreSQL, deploying to AWS EC2",
+        "Architected reusable, modular React component libraries, translating Figma mockups into responsive, pixel-accurate, production-ready UI",
+        "Integrated RESTful and LLM-powered APIs for resume parsing, candidate matching, and intelligent document workflows, improving screening turnaround time",
+        "Collaborated with the AI Center of Excellence (CoE) to embed AI tools into development pipelines, experimenting with prompt engineering and model evaluation",
+      ],
+    },
+    {
+      title: "System Engineer",
+      company: "Tata Consultancy Services | Chennai",
+      period: "01/2023 - 12/2025",
+      description: [
+        "Developed front-end features using Angular components, services, directives, and modules based on business requirements and client mockups",
+        "Built and styled UI screens with Angular Material and Flex Layout, delivering a consistent, accessible design system",
+        "Built CMS integrations using RESTful HTTP services to dynamically manage content and reduce manual content-release effort",
+        "Refactored legacy Angular modules for improved performance, reducing load times and eliminating redundant HTTP calls",
+        "Managed multiple concurrent projects with timely delivery, quality assurance, and adherence to compliance requirements",
       ],
     },
     {
       title: "Programmer Analyst",
-      company: "FIS Global Solutions",
-      period: "2020 - 2023",
+      company: "FIS Global Solutions | Chennai",
+      period: "03/2020 - 12/2022",
       description: [
-        "Developed modern Angular applications with TypeScript",
-        "Created reusable component libraries used across multiple projects",
-        "Collaborated with UX/UI designers to implement pixel-perfect designs",
-        "Integrated REST APIs and managed state with Ngrx",
-        "Participated in Agile ceremonies and contributed to sprint planning",
-        "Implemented unit and end-to-end tests to ensure code quality",
+        "Provided full front-end development support across the project lifecycle, from requirement analysis to deployment",
+        "Built UI templates, layouts, and forms using Angular and Bootstrap for the Modern Banking Platform team",
+        "Implemented client-side form validations and reusable UI directives to reduce duplicate code across modules",
+        "Fixed and unit-tested bugs raised by QA, maintaining a high first-time-fix rate",
+        "Deployed application builds to OpenShift through Jenkins, supporting reliable release cycles",
       ],
     },
     {
       title: "Data Analyst",
-      company: "Urjanet Energy Solutions Pvt Ltd",
-      period: "2019 - 2020",
+      company: "Urjanet Energy Solutions | Chennai",
+      period: "03/2019 - 02/2020",
       description: [
-        "Built responsive websites using HTML, CSS, and JavaScript",
-        "Converted Figma designs into functional web interfaces",
-        "Optimized websites for search engines and accessibility",
-        "Participated in code reviews and agile development processes",
+        "Top performer with a consistent track record of meeting SLAs and quality metrics across multiple customer accounts",
+        "Troubleshot data defect tickets, providing detailed root-cause analysis (RCA) to engineering teams",
+        "Communicated requirements through Jira with subject-matter experts and tracked issues to resolution",
+        "Maintained documentation of recurring defect patterns to support faster future troubleshooting",
       ],
     },
   ];
@@ -50,12 +63,13 @@ const Resume = () => {
     // }
   ];
 
-  const certifications = [
-    "React Developer Certification - Meta",
-    "TypeScript Fundamentals - Microsoft",
-    "Three.js Journey - Bruno Simon",
-    "Frontend Masters - Advanced CSS",
-    "AWS Cloud Practitioner",
+  const achievements = [
+    "Leading the transformation of Workforcenexa into a full-scale HRMS, Finance, and Employee Usage platform with multi-agent AI, microfrontend, and microservices foundations",
+    "Adopted AI-assisted, prompt-driven development (Claude, Codex, Copilot) to move applications from prompt to production, shortening delivery cycles",
+    "Built and maintained Angular Material component libraries reused across multiple enterprise modules",
+    "Consistently met SLAs and quality metrics across engagements at TCS, FIS Global, and Urjanet Energy Solutions",
+    "Contributed to large-scale banking platforms (Bank of America, FIS Global) supporting lending, deposits, and reporting workflows",
+    "Worked across fintech, banking, and enterprise recruitment technology domains",
   ];
 
   return (
@@ -98,7 +112,7 @@ const Resume = () => {
               onClick={() => {
                 const link = document.createElement("a");
                 link.href = "/assets/docs/resume.pdf"; // Update filename if needed
-                link.download = "Aravindalochanan_Resume.pdf"; // Desired download name
+                link.download = "Aravindalochanan_R_Resume.pdf"; // Desired download name
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
@@ -120,18 +134,29 @@ const Resume = () => {
               Contact Information
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Mail size={20} className="text-purple-400" />
-                <span>angulararavind@gmail.com</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Github size={20} className="text-purple-400" />
-                <span>https://github.com/Aravindalochanan1996</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Linkedin size={20} className="text-purple-400" />
-                <span>www.linkedin.com/in/aravindalochanan-ramanujam</span>
-              </div>
+              {[
+                { icon: Mail, label: "lochanan1996@gmail.com", href: "mailto:lochanan1996@gmail.com" },
+                { icon: Phone, label: "+91-7871888848", href: "tel:+917871888848" },
+                { icon: MapPin, label: "Chennai, India" },
+                { icon: Github, label: "github.com/Aravindalochanan1996", href: "https://github.com/Aravindalochanan1996" },
+                { icon: Linkedin, label: "linkedin.com/in/aravindalochanan-ramanujam", href: "https://www.linkedin.com/in/aravindalochanan-ramanujam" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center space-x-2 text-gray-300">
+                  <item.icon size={20} className="text-purple-400" />
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-purple-300 transition-colors break-all"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -209,7 +234,7 @@ const Resume = () => {
             ))}
           </motion.div> */}
 
-          {/* Certifications Section */}
+          {/* Key Achievements Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -217,10 +242,10 @@ const Resume = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold text-white mb-8">
-              Certifications
+              Key Achievements
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
+              {achievements.map((achievement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -228,9 +253,9 @@ const Resume = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-500/30 text-center"
+                  className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-500/30"
                 >
-                  <span className="text-white font-medium">{cert}</span>
+                  <span className="text-white font-medium">{achievement}</span>
                 </motion.div>
               ))}
             </div>

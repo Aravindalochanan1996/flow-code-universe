@@ -253,7 +253,7 @@ const Contact = () => {
                     {
                       icon: Linkedin,
                       label: "LinkedIn",
-                      href: "www.linkedin.com/in/aravindalochanan-ramanujam",
+                      href: "https://www.linkedin.com/in/aravindalochanan-ramanujam",
                       color: "hover:text-blue-400",
                     },
                   ].map((social, index) => (

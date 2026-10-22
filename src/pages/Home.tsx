@@ -64,8 +64,10 @@ const Home = () => {
               <span className="text-white break-words">Aravindalochanan R</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
-              I create beautiful, interactive, and user-friendly web experiences
-              using modern technologies
+              AI Engineer & Full-Stack Developer with 7+ years building
+              scalable React, Angular and Python (FastAPI) applications —
+              now shipping AI-powered, multi-agent products with Claude, Codex
+              and GitHub Copilot.
             </p>
           </motion.div>
 
@@ -117,7 +119,7 @@ const Home = () => {
               },
               {
                 icon: Linkedin,
-                href: "www.linkedin.com/in/aravindalochanan-ramanujam",
+                href: "https://www.linkedin.com/in/aravindalochanan-ramanujam",
                 label: "LinkedIn",
               },
               {
